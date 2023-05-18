@@ -16,3 +16,8 @@ class CartPage(CartLocators):
 
     def proceed_to_checkout(self):
         self.sl.wait_and_click_element(self.CHECKOUT_BTN)
+
+    def get_names_of_product_in_cart(self):
+        product_names_elements = self.sl.wait_and_get_elements(self.PRODUCT_NAME_IN_CART)
+        product_names = [i.text for i in product_names_elements]
+        return product_names

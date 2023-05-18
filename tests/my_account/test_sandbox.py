@@ -31,6 +31,8 @@ class TestSandbox:
         cart.go_to_store()
         cart.add_to_cart()
         cart.view_cart_via_button()
+        product_names = cart_view.get_names_of_product_in_cart()
+        assert len(product_names) == 1, f'Expected 1 item in cart, but found {len(product_names)}'
         cart_view.input_coupon_code(code)
         cart_view.apply_coupon()
         cart_view.proceed_to_checkout()

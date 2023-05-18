@@ -1,6 +1,7 @@
 import pdb
 from time import sleep
 
+from selenium.common import TimeoutException
 from selenium.webdriver import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -39,3 +40,11 @@ class SeleniumExtended:
     def wait_until_element_clickable_and_click(self, locator, timeout=None):
         timeout = timeout if timeout else self.custom_timeout
         WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator)).click()
+
+    def wait_and_get_elements(self, locator, timeout=None, err=None):
+        timeout = timeout if timeout else self.custom_timeout
+        err = err if err else f'Unable to find elements located by {locator}'
+        try:
+            WebDriverWait(self.driver, timeout).until(EC.visibility_of_all_elements_located(locator))
+        except TimeoutException:
+            raise TimeoutException(err)
