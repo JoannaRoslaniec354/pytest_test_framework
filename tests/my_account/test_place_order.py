@@ -11,7 +11,7 @@ from test_framework.src.helpers.generic_helpers import generate_random_strings a
 
 @pytest.mark.usefixtures('init_driver')
 class TestSandbox:
-    @pytest.mark.sandbox
+    @pytest.mark.tcid33
     def test_sandbox(self):
         code = Users.coupon
         cart = Store(self.driver)

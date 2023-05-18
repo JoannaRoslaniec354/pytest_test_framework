@@ -1,5 +1,3 @@
-import pdb
-from time import sleep
 
 from selenium.common import TimeoutException, StaleElementReferenceException
 from selenium.webdriver import Keys
@@ -25,7 +23,7 @@ class SeleniumExtended:
         try:
             WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator)).click()
         except StaleElementReferenceException:
-            time.sleep(10)
+            time.sleep(1)
             WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator)).click()
 
     def wait_and_see_msg(self, locator, text, timeout=None):
