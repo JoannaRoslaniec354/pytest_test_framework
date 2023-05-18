@@ -1,5 +1,3 @@
-import pdb
-
 import pytest
 
 from test_framework.src.pages.CheckoutPage import CheckoutPage
@@ -37,6 +35,6 @@ class TestSandbox:
         cart_view.apply_coupon()
         cart_view.proceed_to_checkout()
         checkout.chose_country('Finland')
-        checkout.fill_form(first_name, last_name, address, postcode, phone, credentials['email'])
+        checkout.fill_form(first_name, last_name, address, postcode, phone, credentials['email'], city)
         checkout.place_order()
 
