@@ -7,6 +7,7 @@ from test_framework.src.pages.CartPage import CartPage
 from test_framework.src.helpers.generic_helpers import generate_random_credentials as cred
 from test_framework.src.helpers.generic_helpers import generate_number_sequence as num_seq
 from test_framework.src.helpers.generic_helpers import generate_random_strings as rand_string
+from test_framework.src.pages.OrderReceived import OrderReceived
 
 
 @pytest.mark.usefixtures('init_driver')
@@ -37,4 +38,7 @@ class TestSandbox:
         checkout.chose_country('Finland')
         checkout.fill_form(first_name, last_name, address, postcode, phone, credentials['email'], city)
         checkout.place_order()
+        order_confirmation = OrderReceived(self.driver)
+        order_confirmation.order_received_title('Order received')
+
 
