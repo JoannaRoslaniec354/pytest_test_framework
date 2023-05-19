@@ -30,6 +30,6 @@ def generate_number_sequence(random_number_sequence_length):
 
 
 def generate_random_strings():
-    random_length = random.randint(0, 15)
+    random_length = random.randint(1, 15)
     random_string = ''.join(random.choices(string.ascii_letters, k=random_length))
     return random_string

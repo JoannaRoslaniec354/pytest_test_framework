@@ -8,6 +8,7 @@ from test_framework.src.helpers.generic_helpers import generate_random_credentia
 from test_framework.src.helpers.generic_helpers import generate_number_sequence as num_seq
 from test_framework.src.helpers.generic_helpers import generate_random_strings as rand_string
 from test_framework.src.pages.OrderReceived import OrderReceived
+from test_framework.src.helpers.database_helper import get_order_from_db_by_order_no
 
 
 @pytest.mark.usefixtures('init_driver')
@@ -41,5 +42,8 @@ class TestSandbox:
         order_confirmation = OrderReceived(self.driver)
         order_confirmation.verify_order_received_title('Order received')
         order_number = order_confirmation.get_order_number()
-        
+        db_order = get_order_from_db_by_order_no(order_number)
+        assert db_order, f'After creating order with FE, not found in DB with order number: {order_number}'
+
+
 
