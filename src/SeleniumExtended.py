@@ -48,3 +48,10 @@ class SeleniumExtended:
         except TimeoutException:
             raise TimeoutException(err)
         return products
+
+    def wait_and_get_text(self, locator, timeout=None):
+        timeout = timeout if timeout else self.custom_timeout
+        elm = WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
+        element_text = elm.text
+
+        return element_text

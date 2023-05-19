@@ -39,6 +39,7 @@ class TestSandbox:
         checkout.fill_form(first_name, last_name, address, postcode, phone, credentials['email'], city)
         checkout.place_order()
         order_confirmation = OrderReceived(self.driver)
-        order_confirmation.order_received_title('Order received')
-
+        order_confirmation.verify_order_received_title('Order received')
+        order_number = order_confirmation.get_order_number()
+        
 
