@@ -1,0 +1,2 @@
+class OrderReceived:
+    pass
