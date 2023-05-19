@@ -12,7 +12,7 @@ from test_framework.src.helpers.generic_helpers import generate_random_strings a
 @pytest.mark.usefixtures('init_driver')
 class TestSandbox:
     @pytest.mark.tcid33
-    def test_sandbox(self):
+    def test_place_order(self):
         code = Users.coupon
         cart = Store(self.driver)
         checkout = CheckoutPage(self.driver)
