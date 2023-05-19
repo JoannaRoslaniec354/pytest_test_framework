@@ -8,5 +8,8 @@ class OrderReceived(OrderReceivedLocators):
         self.driver = driver
         self.sl = SeleniumExtended(self.driver)
 
-    def order_received_title(self, text):
+    def verify_order_received_title(self, text):
         self.sl.wait_and_see_msg(self.ORDER_CONFIRMATION_TITLE, text)
+
+    def get_order_number(self):
+        return self.sl.wait_and_get_text(self.ORDER_NUMBER)
