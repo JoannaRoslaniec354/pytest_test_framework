@@ -13,4 +13,4 @@ class CheckoutLocators:
     PHONE_INPUT = (By.ID, 'billing_phone')
     EMAIL_INPUT = (By.ID, 'billing_email')
     FINAL_PRICE = (By.CSS_SELECTOR, '')
-    PLACE_ORDER_BTN = (By.ID, 'place_order')
+    PLACE_ORDER_BTN = (By.CSS_SELECTOR, '.button.alt.wp-element-button')
