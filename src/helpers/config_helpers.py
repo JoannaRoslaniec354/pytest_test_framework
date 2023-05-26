@@ -5,7 +5,7 @@ def get_base_url():
     env = os.environ.get("ENV", 'test')
 
     if env.lower() == 'test':
-        return 'http://localhost:8888/quicksite/wordpress/'
+        return 'http://localhost:8888/test_store/'
 
 
 def get_database_credentials():

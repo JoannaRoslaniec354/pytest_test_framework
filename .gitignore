@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 src/pages/locators/__pycache__/MyAccountSignedOutLocators.cpython-311.pyc
 *.pyc
+src/helpers/__pycache__/config_helpers.cpython-311.pyc

@@ -40,7 +40,9 @@ class TestSandbox:
         checkout.fill_form(first_name, last_name, address, postcode, phone, credentials['email'], city)
         checkout.place_order()
         order_confirmation = OrderReceived(self.driver)
-        order_confirmation.verify_order_received_title('Order received')
+        text = order_confirmation.get_text()
+        print(text)
+        order_confirmation.verify_order_received_title('Thank you. Your order has been received.')
         order_number = order_confirmation.get_order_number()
         db_order = get_order_from_db_by_order_no(order_number)
         assert db_order, f'After creating order with FE, not found in DB with order number: {order_number}'

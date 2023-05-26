@@ -13,3 +13,6 @@ class OrderReceived(OrderReceivedLocators):
 
     def get_order_number(self):
         return self.sl.wait_and_get_text(self.ORDER_NUMBER)
+
+    def get_text(self):
+        return self.sl.wait_and_get_text(self.ORDER_CONFIRMATION_TITLE)
